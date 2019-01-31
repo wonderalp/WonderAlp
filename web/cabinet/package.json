@@ -1,0 +1,12 @@
+{
+    "name": "cabinet-web",
+    "version": "1.0.0",
+    "dependencies": {
+        "gulp": "*",
+        "gulp-concat": "*",
+        "gulp-ruby-sass": "*",
+        "gulp-uglify": "*",
+        "del": "*",
+        "yargs": "*"
+    }
+}

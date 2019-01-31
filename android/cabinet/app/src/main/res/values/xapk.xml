@@ -1,0 +1,15 @@
+<resources>
+    <!-- Main Activity to launch after xapk check -->
+    <string name="obb_main_activity">com.wonderalp.fr.MainActivity</string>
+    <!-- Unique provider authority (zip file) -->
+    <string name="obb_provider_auth">com.wonderalp.fr.ExpansionFileContentProvider</string>
+    <!-- xApk base directory -->
+    <string name="obb_basedir">www</string>
+
+    <!-- xApk versions -->
+    <integer name="obb_main_version">102</integer>
+    <integer name="obb_patch_version">0</integer>
+
+    <!-- File to check -->
+    <string name="obb_main_filecheck">index.html</string>
+</resources>

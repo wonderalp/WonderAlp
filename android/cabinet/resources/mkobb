@@ -1,0 +1,27 @@
+#!/bin/bash
+
+die_usage()
+{
+    echo "Error: $1";
+    echo "Usage: $0 <version>"
+    exit 1
+}
+
+PKG=com.wonderalp.fr
+OUT=./export
+DIR=../../../web/cabinet/www
+VER=$1
+
+[ -z "$VER" ] && die_usage "No version specified"
+[ ! -d "$DIR" ] && die_usage "Source dir not found"
+
+DIR="${DIR%%/}"
+BASE="${DIR%/*}"
+NAME="${DIR##*/}"
+
+pushd $BASE > /dev/null
+
+#zip -0 -r -x\*/.svn/\* "$OUT/main.$VER.$PKG.obb" "$NAME/"
+zip -n ".mp3;.mp4;.ogg" -r -x\*/.svn/\* -x\*.ogv "$OUT/main.$VER.$PKG.obb" "$NAME/"
+
+popd >/dev/null

@@ -1,0 +1,1107 @@
+$primary:       rgb(89,178,209);
+$secondary:     rgb(226,54,32);
+$tertiary:      rgb(120,80,180);
+$quaternary:    rgb(107,152,35);
+
+$darker:        rgb(90,82,89);
+$dark:          rgb(160,152,159);
+$medium:        rgb(200,198,195);
+$light:         rgb(220,218,215);
+$lighter:       rgb(240,238,235);
+$lightest:      rgb(250,248,245);
+
+$sideMargin:    100px;
+
+@font-face {
+    font-family: Stanley;
+    src: url(f/Stanley-Regular.ttf);
+}
+@font-face {
+    font-family: Stanley;
+    font-style:  italic;
+    src: url(f/Stanley-RegularIta.ttf);
+}
+@font-face {
+    font-family: Stanley;
+    font-weight: bold;
+    src: url(f/Stanley-Bold.ttf);
+}
+@font-face {
+    font-family: Stanley;
+    font-weight: bold;
+    font-style:  italic;
+    src: url(f/Stanley-BoldIta.ttf);
+}
+@font-face {
+    font-family: Icons;
+    src: url(f/Icons.ttf);
+}
+
+@keyframes fadeIn {
+    from {opacity:0}
+    to {opacity:1}
+}
+
+html, body {
+    height:100%;overflow:hidden;margin:0;padding:0;
+    font:16px Stanley;
+}
+body {
+    text-rendering:                 optimizeSpeed;
+    position: fixed;
+    width: 100%;
+}
+h1,h2,h3,h4{font-weight:normal;line-height:1.2em;margin:0}
+h1 {font-size: 28px; color: $darker; font-weight: 900;}
+h2 {font-size: 1.8em;}
+h3 {font-size: 1.5em;}
+h4 {font-weight:bold;}
+p  {line-height:1.5em;} //  font-size: 18px;
+/*
+h1,h2,h3 {
+    text-rendering:                 optimizeLegibility;
+    -moz-font-feature-settings:     "kern=1","liga=1, dlig=1";
+    -moz-font-feature-settings:     "kern","liga","dlig";
+    -ms-font-feature-settings:      "kern","liga","dlig";
+    -o-font-feature-settings:       "kern","liga","dlig";
+    -webkit-font-feature-settings:  "kern","liga","dlig";
+    font-feature-settings:          "kern","liga","dlig";
+    font-variant-ligatures:         common-ligatures !important;
+    -webkit-font-variant-ligatures: common-ligatures !important;
+    font-kerning:                   normal;
+}
+*/
+.btn {
+    display:    inline-block;
+    background-color: $secondary;
+    background-image: -moz-linear-gradient(top,    rgba(0,0,0,0) 0%,  rgba(0,0,0,0.1) 100%);
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,  rgba(0,0,0,0.1) 100%);
+    background-image: -o-linear-gradient(top,      rgba(0,0,0,0) 0%,  rgba(0,0,0,0.1) 100%);
+    background-image: -ms-linear-gradient(top,     rgba(0,0,0,0) 0%,  rgba(0,0,0,0.1) 100%);
+    background-image: linear-gradient(to bottom,   rgba(0,0,0,0) 0%,  rgba(0,0,0,0.1) 100%);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    border:     1px solid $secondary;
+    border-radius: 4px;
+    color:      #fff;
+    text-decoration: none;
+    text-align: center;
+    width:      6em;
+    padding:    12px;
+    cursor:     pointer;
+}
+
+[data-href] {
+    cursor: pointer;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    //display:        inline-block;
+    font-family:    Icons;
+    font-style:     normal;
+    font-weight:    normal;
+    font-variant:   normal;
+    text-transform: none;
+    line-height:    1;
+    speak:          none;
+    -webkit-font-smoothing:  antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-audio:before          {content: "\21";}
+.icon-close:before          {content: "\22";}
+.icon-favorite_empty:before {content: "\23";}
+.icon-favorite_full:before  {content: "\24";}
+.icon-home:before           {content: "\25";}
+.icon-impressum:before      {content: "\26";}
+.icon-pause:before          {content: "\27";}
+.icon-play:before           {content: "\28";}
+.icon-text:before           {content: "\29";}
+.icon-zoom:before           {content: "\2a";}
+
+.vl, .hl {
+    position: absolute;
+    background: $light;
+}
+.vl { width: 2px }
+.hl { height: 2px }
+
+
+/******************************************************************************
+ *
+ * Structure
+ *
+ */
+
+// Original grid:
+//  12 cols, 8 rows, 16px gutter designed for 1024 x 768
+//  -> cell: 68 x 78  ( 12*68 + 13 * 16 = 1024 )
+
+#preload, #preload>div, #welcome, #home, #favs, #content, .intro, .section {
+    position:   absolute;
+    display:    none;
+    top:        0;
+    left:       0;
+    width:      100%;
+    height:     100%;
+}
+
+// --- Content ---
+// 
+#content {
+    top:        4em;
+    bottom:     0;
+    height:     auto;
+}
+
+// --- Preload ---
+// 
+#preload, #preload>div {
+    display: block;
+}
+#preloadMask {
+    background: #fff;
+}
+
+// --- Welcome ---
+// 
+#welcome {
+    background: #fff;
+    text-align: center;
+    display:    block;
+
+    h1 {
+        position:       relative;
+        top:            50%;
+        margin-top:     -1.8em;
+        text-align:     center;
+        white-space:    pre-line;
+    }
+
+    .btn {
+        position:       absolute;
+        width:          6em;
+        bottom:         15%;
+        left:           50%;
+        margin-left:    -61px
+    }
+
+    .wa, .wb {
+        position:            absolute;
+        background-position: center;
+        background-repeat:   no-repeat;
+        background-size:     contain;
+    }
+    .wah {opacity: 0;}
+    .wav {opacity: 1;transition-duration: 1600ms;}
+
+    $width:     100% / 12;
+    $height:    100% / 8;
+    $lineUID:   0;
+
+
+    @mixin cell($name, $x, $y, $w, $h) {
+        .#{$name} {
+            top:              $y * $height + 1.5%;
+            left:             $x * $width  + 1.5%;
+            width:            $w * $width  - 3%;
+            height:           $h * $height - 3%;
+            background-image: url(../d/intro/#{$name}.png)
+        }
+    }
+
+    @mixin hline($x1, $x2, $y) {
+        $lineUID: $lineUID+1;
+        
+        $x1p: 1%; $x2p: 1%;
+        @if $x1 == 0  { $x1p: 0; }
+        @if $x2 == 12 { $x2p: 0; }
+
+        .l#{$lineUID} {
+            background: $light;
+            height:     2px;
+            top:    $y          * $height;
+            left:   $x1         * $width + $x1p;
+            width:  ($x2 - $x1) * $width - $x1p - $x2p;
+        }
+    }
+
+    @mixin vline($y1, $y2, $x) {
+        $lineUID: $lineUID+1;
+
+        $y1p: 1%; $y2p: 1%;
+        @if $y1 == 0 { $y1p: 0; }
+        @if $y2 == 8 { $y2p: 0; }
+
+        .l#{$lineUID} {
+            background: $light;
+            width:      2px;
+            left:       $x          * $width;
+            top:        $y1         * $height + $y1p;
+            height:     ($y2 - $y1) * $height - $y1p - $y2p;
+        }
+    }
+    
+    @include cell(c1,   0, 0,  3, 2);
+    @include cell(c2,   3, 0,  3, 2);
+    @include cell(c3,   7, 0,  3, 1);
+    @include cell(c4,  10, 0,  2, 3);
+    @include cell(c5,   6, 1,  4, 2);
+    @include cell(c6,  11, 2,  1, 2);
+    @include cell(c7,   0, 2,  1, 2);
+    @include cell(c8,   1, 2,  2, 2);
+    @include cell(c9,   3, 2,  2, 1);
+    @include cell(c10,  9, 3,  1, 2);
+    @include cell(c11, 10, 3,  1, 1);
+    @include cell(c12,  0, 4,  1, 2);
+    @include cell(c13,  1, 4,  2, 2);
+    @include cell(c14,  3, 4,  1, 2);
+    @include cell(c15, 10, 4,  1, 1);
+    @include cell(c16,  9, 5,  2, 1);
+    @include cell(c17, 11, 5,  1, 3);
+    @include cell(c18,  0, 6,  2, 1);
+    @include cell(c19,  2, 6,  2, 1);
+    @include cell(c20,  8, 6,  1, 1);
+    @include cell(c21,  9, 6,  2, 2);
+    @include cell(c22,  0, 7,  4, 1);
+    @include cell(c23,  4, 7,  4, 1);
+    @include cell(c24,  8, 7,  1, 1);
+    @include cell(c25,  4, 3,  4, 4);
+    @include cell(c26,  5, 5.5,  2, 1);
+    .c26{background-image:none}
+
+    @include hline( 7, 10, 1);
+    @include hline(11, 12, 1);
+    @include hline( 0,  1, 2);
+    @include hline( 1,  3, 2);
+    @include hline( 3,  6, 2);
+    @include hline( 8,  9, 3);
+    @include hline( 9, 10, 3);
+    @include hline(10, 11, 3);
+    @include hline(11, 12, 3);
+    @include hline( 0, 1, 4);
+    @include hline( 1, 3, 4);
+    @include hline( 3, 4, 4);
+    @include hline(10, 11, 4);
+    @include hline( 9, 10, 5);
+    @include hline(10, 11, 5);
+    @include hline(11, 12, 5);
+    @include hline(0, 1, 6);
+    @include hline(1, 2, 6);
+    @include hline(2, 3, 6);
+    @include hline(3, 4, 6);
+    @include hline(9, 11, 6);
+    @include hline(0, 4, 7);
+    @include hline(4, 8, 7);
+    @include hline(8, 9, 7);
+
+    @include vline(2, 4, 1);
+    @include vline(4, 6, 1);
+    @include vline(6, 7, 2);
+    @include vline(0, 2, 3);
+    @include vline(2, 4, 3);
+    @include vline(4, 6, 3);
+    @include vline(6, 7, 4);
+    @include vline(7, 8, 4);
+    @include vline(0, 2, 6);
+    @include vline(0, 1, 7);
+    @include vline(6, 7, 8);
+    @include vline(7, 8, 8);
+    @include vline(3, 5, 9);
+    @include vline(5, 6, 9);
+    @include vline(6, 7, 9);
+    @include vline(7, 8, 9);
+    @include vline(0, 1, 10);
+    @include vline(1, 3, 10);
+    @include vline(3, 5, 10);
+    @include vline(1, 3, 11);
+    @include vline(3, 4, 11);
+    @include vline(4, 5, 11);
+    @include vline(5, 8, 11);
+}
+
+
+// --- Menu ---
+// 
+#menu {
+    position:   absolute;
+    top:        0;
+    width:      100%;
+    height:     4em;
+    background: #fff;
+
+    .home, .favs {
+        position:   absolute;
+        box-sizing: border-box;
+        top:        0;
+        width:      $sideMargin;
+        height:     100%;
+        color:      $dark;
+        text-align: center;
+        font-size:  12px;
+        padding:    10px;
+
+        [class^="icon-"] {
+            font-size: 30px;
+            margin:0 0 2px 0;
+        }
+
+        &.selected {    /*&:hover*/
+            color: $primary;
+        }
+    }
+    .favs {
+        right: 0;
+    }
+
+    .items {
+        transition: 500ms;
+        opacity:    0;
+        height:     100%;
+        padding:    0 $sideMargin;
+        background: #fff;
+    }
+
+    .item {
+        transition:     border 500ms;
+        float:          left;
+        box-sizing:     border-box;
+        width:          33.33%;
+        height:         100%;
+        border-left:    1px solid $lighter;
+        color:          $dark;
+        font-size:      15px;
+        padding:        24px 16px;
+        white-space:    nowrap;
+        overflow:       hidden;
+        text-overflow:  ellipsis;
+        background-position:    98% 50%;
+        background-repeat:      no-repeat;
+        background-size:        contain;
+    }
+
+    .item:last-child {
+        border-right: 1px solid $lighter;
+    }
+
+    &.items-visible {
+        .items {
+            //top: 0%;
+            opacity: 1;
+        }
+        .item, .home, .favs {
+            border-bottom: 2px solid $light;
+        }
+    }
+
+    .item.selected {
+        background-color: $lighter;
+    }
+}
+
+
+// --- Home & favs ---
+// 
+#home {
+    color: $darker;
+
+    h2 {
+        margin: 0.2em 0 1.5em 0;
+        color: $primary;
+        font-size: 2em;
+    }
+
+    p {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+
+    .center {
+        position:       absolute;
+        top:            8%;
+        left:           50%;
+        width:          800px;
+        margin-left:    -400px;
+    }
+
+    .impressum {
+        position:       absolute;
+        top:            10px;
+        right:          0;
+        font-size:      12px;
+        color:          $dark;
+
+        [class^="icon-"] {
+            margin:         0 auto 7px auto;
+            width:          32px;
+            font-size:      32px;
+            padding:        7px;
+            border-radius:  100%;
+            background:     #feffff;
+            background:     -moz-linear-gradient(top,    #eeeeee 0%,    #fefefe 100%);
+            background:     -webkit-linear-gradient(top, #eeeeee 0%,    #fefefe 100%);
+            background:     -o-linear-gradient(top,      #eeeeee 0%,    #fefefe 100%);
+            background:     -ms-linear-gradient(top,     #eeeeee 0%,    #fefefe 100%);
+            background:     linear-gradient(to bottom,   #eeeeee 0%,    #fefefe 100%);
+            box-shadow:     0px 1px 3px rgba(0,0,0,0.4);
+        }
+    }
+
+    .asterism {
+        background: url(asterism_darker.png) no-repeat center;
+        background-size: 32px 20px;
+        height:     20px;
+        margin-top: 1.5em;
+    }
+
+    .bottom {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 10em;
+        background: #fff;
+        padding-top: 2em;
+
+        i {
+            position:   absolute;
+            top:        0;
+            left:       0;
+            right:      0;
+            text-align: center;
+            font-size:  18px;
+            color:      $dark;
+        }
+    }
+
+    .box {
+        position:   relative;
+        float:      left;
+        width:      33.33%;
+        height:     100%;
+
+        .pic {
+            position:   absolute;
+            top:        10px;
+            bottom:     40px;
+            left:       10px;
+            right:      10px;
+            background-size:    contain;
+            background-repeat:  no-repeat;
+            background-position:center;
+        }
+
+        span {
+            position: absolute;
+            bottom:   10px;
+            left:     10px;
+            right:    10px;
+            text-align: center;
+            font-size: 18px;
+        }
+    }
+}
+
+#favs {
+    color: $darker;
+    overflow: auto; 
+    h2 {
+        margin-bottom: 0.2em;
+    }    
+    h3 {
+        font-weight:    bold;
+        font-style:     italic;
+        margin-bottom:  0.7em;
+    }
+
+    .center {
+        position:       absolute;
+        top:            10%;
+        left:           10%;
+        width:          80%;
+    }
+
+    .row {
+        float:          left;
+        clear:          both;
+        width:          100%;
+        border-left:    2px solid $light;
+        padding:        0 5px;
+        margin-bottom:  3em;
+    }
+
+    .fav {
+        float:      left;
+        position:   relative;
+        box-sizing: border-box;
+        height:     14em;
+        width:      20%;
+    }
+
+    .pic {
+        position:   absolute;
+        top:        0;
+        bottom:     2em;
+        left:       0;
+        right:      0;
+        background-repeat:      no-repeat;
+        background-position:    center;
+        background-size:        contain;
+    }
+
+    .label {
+        position:   absolute;
+        text-align: center;
+        left:       1.2em;
+        right:      1.2em;
+        bottom:     0;
+    }
+
+    .hl {
+        bottom:     -15px;
+        left:       10px;
+        right:      10px;
+    }
+}
+
+
+
+// -- Intro --
+// 
+.intro {
+    $textWidth:     630px;
+    $halfWidth:     300px;
+    $bottomMargin:  100px;
+    $lineSpace:     10px;
+    overflow:       hidden;
+
+    .inner {
+        position:   absolute;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;
+    }
+
+    .text {
+        position:   absolute;
+        top:        8px;
+        left:       $sideMargin;
+        bottom:     $bottomMargin;
+        width:      $textWidth - 20px;
+        padding:    0 10px;
+
+        h2 {margin:80px 0 50px 0}
+        p  {color: $darker;margin: 0;font-size:1em;width:85%}
+
+        .v0 {top: 80px; bottom: $lineSpace; left: 0}
+        .v1 {top: 8px;  bottom: $lineSpace; right: 0}
+        .v2, .v3, .v4 {bottom:16px - $bottomMargin; height: $bottomMargin - 16px - $lineSpace}
+        .v2 {left: 0}
+        .v3 {left: $halfWidth;}
+        .v4 {right: 0}
+        .h0, .h1, .h2 {bottom: 0}
+        .h0 {left: -$sideMargin; width: $sideMargin - $lineSpace}
+        .h1 {left: $lineSpace; width: $halfWidth - 2 * $lineSpace}
+        .h2 {left: $halfWidth + $lineSpace; right: $lineSpace}
+        
+        .btn {
+            position:absolute;
+            left:   ( $halfWidth - 186px ) / 2;
+            bottom: -70px;
+            width:  160px;
+        }
+    }
+
+    .map {
+        position:            absolute;
+        background-position: center;
+        background-repeat:   no-repeat;
+        background-size:     contain;
+    }
+
+    .pin {
+        position:   absolute;
+        width:      50px;
+        height:     50px;
+        background: url(pin.png) no-repeat center;
+        background-size: 100%;
+    }
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    
+    background: $lighter;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+
+    &>h2 {
+        padding:0.5em;
+        color: $secondary;
+    }
+}
+
+.add-fav {
+    position:   absolute;
+    top:        0;
+    right:      160px;
+    padding:    4px;
+    font-size:  16px;
+    text-align: center;
+    color:      $darker;
+    & [class^="icon-"] {
+        font-size: 30px;
+        margin:0 0 2px 0;
+    }
+}
+
+// --- Desktops ---
+// 
+.desktop {
+    position: absolute;
+    top: 4em; bottom: 0;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+
+    & .container {
+        -webkit-transform: translateZ(0);
+        position: absolute;
+        top: 0; left: 0;
+    }
+
+    & .border {
+        position: absolute;
+        background: $medium;
+    }
+
+    & .cell {
+        position:   absolute;
+        height:     100%;
+    }
+
+    & .content {
+        position:            absolute;
+        box-sizing:          border-box;
+        background:          #fff;
+        padding:             16px;
+        background-size:     cover;
+        background-position: center;
+        background-repeat:   no-repeat;
+
+        &.fadeIn {            
+            opacity: 0;
+        }
+
+        & .img {
+            width: 100%; height: 100%;
+            background-size:     contain;
+            background-position: center;
+            background-repeat:   no-repeat;
+        }
+
+        & .opn {
+            position:   absolute;
+            font-size:  28px;
+            bottom:      0px;
+            right:       0px;
+            padding:    16px;
+
+            ins {
+                display:            block;
+                padding:            7px;
+                color:              #fff;
+                border-radius:      100%;
+                background:         $secondary;
+                text-decoration:    none;
+                border:             0;
+            }
+        }
+    }
+
+    & .active .fadeIn {
+        transition: opacity 1s ease 500ms;
+        opacity: 1;
+    }
+}
+
+// --- Minimap & Dropdown map ---
+// 
+.minimap {
+    position:   absolute;
+    top:        9px;
+    right:      0;
+    width:      100px;
+    height:     48px;
+    & .cell {
+        position: absolute;
+        background: $medium;
+    }
+    & .cell.active  {background: $secondary}
+    & .cell.visited {background: $secondary; opacity: 0.5}
+}
+
+#modalMap {
+    $top:       64px + 60px;
+    $right:     8px;
+
+    display:            none;
+    position:           absolute;
+    top:                0;
+    bottom:             0;
+    left:               0;
+    right:              0;
+    background-color:   rgba(0,0,0,0.5);
+    transition:         opacity 300ms;
+
+    ins {
+        display:        block;
+        position:       absolute;
+        top:            $top    - 8px;
+        right:          $right  + 34px;
+        background:     url(dropdown_pin@2x_32x16.png) no-repeat center;
+        background-size:100%;
+        width:          16px;
+        height:         8px;
+    }
+
+    .ddown {
+        position:       absolute;
+        top:            $top;
+        right:          $right;
+        width:          384px;
+        height:         593px;
+        padding:        10px;
+        background:     #f9f7f3;
+        border-radius:  4px;
+        box-shadow:     0 0 8px rgba(0,0,0,0.5);
+    }
+
+    .mitm {
+        position:           relative;
+        float:              left;
+        width:              120px;
+        margin:             4px;
+        height:             140px;
+        background-repeat:  no-repeat;
+        background-size:    100px;
+        background-position:50% 3px;
+        background-color:   #edeae6;
+        cursor:             pointer;
+
+        span {
+            position:       absolute;
+            font-size:      12px;
+            bottom:         8px;
+            left:           8px;
+            right:          8px;
+            height:         30px;
+            text-align:     center;
+            overflow:       hidden;
+            color:          $darker;
+        }
+
+        &.active span  {color: $secondary; opacity: 1 !important;}
+        &.visited span {color: $secondary; opacity: 0.7}
+    }
+}
+
+
+
+// --- Modal ---
+// 
+.modal {
+    position:   absolute;
+    top:        0;
+    left:       0;
+    width:      100%;
+    height:     100%;
+    background: #fff;
+    display:    none;
+    transition: opacity 300ms;
+    overflow:   hidden;
+
+    $sideWidth: 400px;
+
+    .pic {
+        position:   absolute;
+        top:        0;
+        left:       0;
+        right:      0;
+        height:     100%;
+        transition: left 400ms;
+        overflow:   hidden;
+    }
+
+    .side {
+        transition: 400ms;
+        position:   absolute;
+        box-sizing: border-box;
+        top:        0;
+        left:       -$sideWidth;
+        width:      $sideWidth;
+        height:     100%;
+        padding:    20px;
+        background: #fff;
+        color:      $darker;
+
+        td {
+            vertical-align: top;
+            width:          50%;
+            padding-bottom: 10px;
+            font-size:      14px;
+        }
+        td:first-child {
+            padding-right:20px;
+        }
+
+        .extra {
+            font-size:      14px;
+        }
+
+        .scroll {
+            -webkit-overflow-scrolling: touch;
+            overflow:   auto;
+            position:   absolute;
+            top:        100px;
+            left:       10px;
+            bottom:     0;
+            right:      10px;
+            padding:    10px;
+        }
+
+        p {
+            margin: 0.5em 0;
+        }
+    }
+
+    .close-modal, .open-side, .play-audio {
+        transition: 400ms;
+        position:   absolute;
+        top:        20px;
+        right:      20px;
+        font-size:  32px;
+        padding:    10px;
+        color:      #fff;
+        border-radius: 100%;
+        background: rgba(0,0,0,0.7);
+    }
+
+    .open-side {
+        left:       20px;
+        right:      auto;
+    }
+
+    .play-audio {
+        left:       20px;
+        bottom:     20px;
+        right:      auto;
+        top:        auto;
+    }
+
+    .audio-bar {
+        transition: left 400ms;
+        position:   absolute;
+        left:       92px;
+        right:      20px;
+        bottom:     35px;
+        height:     20px;
+        background: #000;
+        opacity:    0.7;
+    }
+
+    .audio-cursor {
+        height: 100%;
+        width:  0;
+    }
+
+    &.side-opened {
+        .pic {
+            left: $sideWidth;
+        }
+        .side {
+            left:       0;
+        }
+        .open-side {
+            left: $sideWidth - 26px;
+            background: #fff;
+            color:      #333;
+        }
+        .play-audio {
+            left: $sideWidth + 20px;
+        }
+        .audio-bar {
+            left: $sideWidth + 92px;
+        }
+    }
+}
+
+#modalText {  
+    .close-modal {
+        color:      #333;
+        background: #feffff;
+        background: -moz-linear-gradient(top,    #eeeeee 0%,    #fefefe 100%);
+        background: -webkit-linear-gradient(top, #eeeeee 0%,    #fefefe 100%);
+        background: -o-linear-gradient(top,      #eeeeee 0%,    #fefefe 100%);
+        background: -ms-linear-gradient(top,     #eeeeee 0%,    #fefefe 100%);
+        background: linear-gradient(to bottom,   #eeeeee 0%,    #fefefe 100%);
+        box-shadow: 0px 1px 3px rgba(0,0,0,0.4);
+    }
+
+    $indexLeft:         -440px;
+    $vlMarginLeft:      10px;
+
+    h2 {
+        padding-top: 42px;
+    }
+
+    .index {
+        position:       absolute;
+        top:            105px;
+        width:          180px;
+        left:           50%;
+        margin-left:    $indexLeft;
+
+        a {
+            display:            block;
+            text-decoration:    none;
+            line-height:        1em;
+            color:              $dark;
+            font-size:          14px;
+            padding-bottom:     2.8em;
+
+            &.active {
+                font-weight:    bold;
+                color:          $darker;
+            }
+        }
+    }
+
+    .bgcol {
+        position:       absolute;
+        top:            0;
+        bottom:         0;
+        left:           50%;
+        width:          540px;
+        margin-left:    -270px;
+        background:     #fff;
+    }
+
+    .scroll {
+        position:   absolute;
+        top:        0;
+        left:       0;
+        width:      100%;
+        height:     100%;
+        overflow:   auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .text {
+        color:      $darker;
+        width:      500px;
+        margin:     50px auto;
+        font-size:  1em;
+    }
+
+    .vl {
+        top:            0;
+        bottom:         0;
+        left:           50%;
+        margin-left:    $indexLeft - $vlMarginLeft;
+    }
+    .hl {
+        left:           0;
+        right:          0;
+    }
+    .sqr {
+        $sqrSize:       18px;
+        position:       absolute;
+        width:          $sqrSize;
+        height:         $sqrSize;
+        background:     #fff;
+        left:           50%;
+        margin-left:    $indexLeft - $vlMarginLeft - $sqrSize / 2;
+        margin-top:     - $sqrSize / 2;
+    }
+
+    &.sglobal {
+        text-align: center;
+
+        p, h1, h2 {
+            margin:      24px 0;
+            line-height: 1.3em;
+            padding-top: 0;
+        }
+
+        h2 {
+            color: $primary;
+            font-size: 22px;
+        }
+
+        p.refs {
+            text-align:left;
+            font-size: 15px;
+            line-height:1.2em;
+        }
+        sup {
+            position: relative;
+            vertical-align: top;
+            font-size: 0.8em;
+            top: -0.5em;
+        }
+        
+        .logo_viaticalpes {
+            margin:auto;
+            background:url(logo_viaticalpes_2x.jpg) no-repeat center;
+            background-size: auto 219px;
+            height:219px;
+        }
+
+        .logos {
+            margin:     auto;
+            width:      100%;
+            overflow:   hidden;           
+            
+            div {
+                float:           left;
+                height:          162px;
+                width:           250px;
+                background-size: 220px 162px !important;
+            }
+
+            .loterie { background:url(Logo_LoterieRomande@2x.png) no-repeat center; }
+            .unil    { background:url(Logo_UNIL@2x.png) no-repeat center; }
+            .acvs    { background:url(Logo_ACVS@2x.png) no-repeat center; }
+            .sandoz  { background:url(Logo_Sandoz@2x.png) no-repeat center; }
+        }
+    }
+}
+
+/******************************************************************************
+ *
+ * Colors per section
+ *
+ */
+.s0 {
+    &.item.selected {border-bottom:2px solid $secondary !important; }
+    .cell.active, .cell.visited, .opn ins, .audio-cursor { background: $secondary !important }
+    span, h2 {color: $secondary !important; }
+    .open-side, .play-audio { background: rgba(226,54,32,0.7) }
+    .btn { background-color: $secondary; border-color: $secondary; }
+}
+.s1 {
+    &.item.selected {border-bottom:2px solid $tertiary !important; }
+    .cell.active, .cell.visited, .opn ins, .audio-cursor { background: $tertiary !important }
+    span, h2 {color: $tertiary !important; }
+    .open-side, .play-audio { background: rgba(120,80,180,0.7) }
+    .btn { background-color: $tertiary; border-color: $tertiary; }
+}
+.s2 {
+    &.item.selected {border-bottom:2px solid $quaternary !important; }
+    .cell.active, .cell.visited, .opn ins, .audio-cursor { background: $quaternary !important }
+    span, h2 {color: $quaternary !important; }
+    .open-side, .play-audio { background: rgba(107,152,35,0.7) }
+    .btn { background-color: $quaternary; border-color: $quaternary; }
+}

@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">WonderAlp</string>
+
+    <string name="notification_download_complete">Téléchargement terminé</string>
+    <string name="notification_download_failed">Téléchargement annulé</string>
+
+    <string name="state_unknown">Veuillez patienter...</string>
+    <string name="state_idle">En attente du début du téléchargement</string>
+    <string name="state_fetching_url">Récuperation des informations de téléchargement</string>
+    <string name="state_connecting">Connection au serveur de téléchargement</string>
+    <string name="state_downloading">Téléchargement du contenu de l\'application</string>
+    <string name="state_completed">Téléchargement terminé</string>
+    <string name="state_paused_network_unavailable">Aucun réseau disponnible, le téléchargement est suspendu</string>
+    <string name="state_paused_network_setup_failure">Le réseau ne semble pas être connecté à Internet. Téléchargement suspendu</string>
+    <string name="state_paused_by_request">Téléchargement suspendu</string>
+    <string name="state_paused_wifi_unavailable">Téléchargement suspendu car aucun réseau wifi disponible</string>
+    <string name="state_paused_wifi_disabled">Téléchargement suspendu car le wifi est désactivé</string>
+    <string name="state_paused_roaming">Téléchargement suspendu pour cause de roaming</string>
+    <string name="state_paused_sdcard_unavailable">Le téléchargement est suspendu car la carte sd n\'est pas accessible</string>
+    <string name="state_failed_unlicensed">Le téléchargement a échoué car la licence de l\'application n\'est pas valable</string>
+    <string name="state_failed_fetching_url">Le téléchargement a échoué car les information de téléchargement sont introuvables</string>
+    <string name="state_failed_sdcard_full">Le téléchargement a échoué car la carte SD est pleine</string>
+    <string name="state_failed_cancelled">Téléchargement annulé</string>
+    <string name="state_failed">Téléchargement a échoué</string>
+    <string name="state_corrupted">Contenu de l\'application corrompu, redémarrage du téléchargement</string>
+
+    <string name="kilobytes_per_second">%1$s KB/s</string>
+    <string name="time_remaining">Temps restant: %1$s</string>
+    <string name="time_remaining_notification">%1$s restantes</string>
+
+    <string name="text_paused_cellular">Souhaitez vous activer le téléchargement par la connection cellulaire ? Selon votre abonnement de mobile cela pourrait vous coûter de l\'argent.</string>
+    <string name="text_paused_cellular_2">Si vous décidez de ne pas activer le téléchargement par la connection cellulaire, ce dernier démarrera automatiquement lorsqu\'un réseau wifi sera disponible.</string>
+    <string name="text_button_resume_cellular">Continuer le téléchargement</string>
+    <string name="text_button_wifi_settings">Paramètres wifi</string>
+    <string name="text_verifying_download">Vérification du téléchargement</string>
+    <string name="text_validation_complete">Validation du contenu effectuée</string>
+    <string name="text_validation_failed">La validation du contenu a échoué</string>
+    <string name="text_button_pause">Suspendre le téléchargement</string>
+    <string name="text_button_resume">Reprendre le téléchargement</string>
+    <string name="text_button_cancel">Annuler</string>
+    <string name="text_button_cancel_verify">Annuler la vérification</string>
+
+</resources>

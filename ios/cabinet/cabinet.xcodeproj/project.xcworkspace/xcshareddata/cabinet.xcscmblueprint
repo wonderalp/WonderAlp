@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C4A8DED49021B99FFD587A7D41AB3B1184FCE432",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C4A8DED49021B99FFD587A7D41AB3B1184FCE432" : 0,
+    "D9D85BAF9969327AFDCE34D32ED5437EA9A6780D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4E7AE2FC-27B7-4797-B584-217ADC9EC8E4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C4A8DED49021B99FFD587A7D41AB3B1184FCE432" : "cabinet",
+    "D9D85BAF9969327AFDCE34D32ED5437EA9A6780D" : "web\/sites\/cabinet"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "cabinet",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "cabinet.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.1.101:7990\/scm\/p_012\/cabinetios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C4A8DED49021B99FFD587A7D41AB3B1184FCE432"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.1.101:7990\/scm\/P_012\/cabinetweb.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D9D85BAF9969327AFDCE34D32ED5437EA9A6780D"
+    }
+  ]
+}
